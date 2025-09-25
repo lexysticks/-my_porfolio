@@ -1,4 +1,4 @@
-  * {
+* {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -9,7 +9,52 @@
       background: #0d0d0d;
       color: #fff;
       line-height: 1.6;
-    }
+    }.section, .hero, .about-section, .services, .tools-section, .contact-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-in-out;
+}
+
+/* When visible */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tools slider */
+.tools-slider {
+  overflow: hidden;
+  width: 100%;
+  padding: 30px 0;
+  background: #111;
+  display: flex;
+  justify-content: center; /* Center the content */
+}
+
+.tools-track {
+  display: flex;
+  gap: 50px;
+  animation: scrollTools 15s linear infinite;
+  /* Start from center */
+  transform: translateX(-25%);
+}
+
+.tools-track img {
+  width: 60px;
+  height: 60px;
+}
+
+@keyframes scrollTools {
+  from { transform: translateX(-25%); } /* Start centered */
+  to   { transform: translateX(-75%); } /* Scroll left */
+}
+
+
+@keyframes scrollTools {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 
     /* Header */
     header {
@@ -332,3 +377,101 @@
         flex-direction: column;
       }
     }
+
+     /* Project Section */
+.project-section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+.project-image {
+  flex: 1;
+}
+
+.project-image img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.project-details {
+  flex: 2;
+}
+
+.project-details h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #ff0057;
+}
+
+.project-details p {
+  color: #ccc;
+  line-height: 1.6;
+  margin: 1rem 0;
+}
+
+/* View App button */
+.view-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1rem;
+  background-color: #ff0057;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.view-btn:hover {
+  background-color: #e6004c;
+}
+/* Footer */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 50px;
+}
+
+
+
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #222;
+  padding-top: 15px;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+}
+
